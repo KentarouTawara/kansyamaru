@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'top#index'
+  root to: 'posts#new'
+  resources :posts
 end

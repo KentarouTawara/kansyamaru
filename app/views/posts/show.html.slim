@@ -4,53 +4,29 @@
       .tiltle
         h4.text-center.m-3
           | 誰かの小さな感謝を運んでいます
-      
-      .image.m-3
-        = image_pack_tag 'logo.jpg', size: '500x500', class: "rounded mx-auto d-block img-thumbnail"
-
+      .image.mt-3.shake-slow.shake-constant#image
+        = image_pack_tag 'logo.jpg', size: '500x500', class: "rounded mx-auto d-block img-thumbnail shake-constant"
   .row.justify-content-center
-    .col-6#
-      .card.mb-3
+    .col-6#post_form
+      .card.m-3
         .card-header
           h5.text-center 
             | #{@random_post.name}さん の小さな感謝が届きました
         .card-body
-          h4.card-text
+          h6.card-text
             = @random_post.description
-
       .root.text-center
         = link_to 'もう一度感謝する', root_path, class: 'btn btn btn-raised btn-primary mr-5'
         = link_to '感謝をみんなに広げる', root_path, class: 'btn btn btn-raised btn-primary ml-5'
-
 javascript:
-  //初期表示は非表示
+  //感謝カードを浮き上がらせる処理
   document.getElementById("post_form").style.visibility ="hidden";
-  
   function formVisible(){
   	const p = document.getElementById("post_form");
-  
-  	if(p.style.visibility=="visible"){
-  		// hiddenで非表示
-  		p.style.visibility ="hidden";
-  	}else{
-  		// visibleで表示
   		p.style.visibility ="visible";
-  	}
   }
-  setTimeout("formVisible()", 3000);
-
-  //初期表示は非表示
-  document.getElementById("image").style.display ="block";
-  
-  function imageNone(){
-  	const p1 = document.getElementById("image");
-  
-  	if(p1.style.display=="block"){
-  		// noneで非表示
-  		p1.style.display ="none";
-  	}else{
-  		// blockで表示
-  		p1.style.display ="block";
-  	}
+  setTimeout("formVisible()", 2000);
+  function stop(){
+    document.getElementById("image").className="hoge";
   }
-  setTimeout("imageNone()", 3000);
+  setTimeout("stop()", 2000);

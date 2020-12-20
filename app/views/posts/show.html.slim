@@ -11,13 +11,17 @@
       .card.m-3
         .card-header
           h5.text-center 
-            | #{@random_post.name}さん の小さな感謝が届きました
+            | #{ @random_post.name }さん の小さな感謝が届きました
         .card-body
           h6.card-text
             = @random_post.description
       .root.text-center
         = link_to 'もう一度感謝する', root_path, class: 'btn btn btn-raised btn-primary mr-5'
         = link_to '感謝をみんなに広げる', root_path, class: 'btn btn btn-raised btn-primary ml-5'
+= link_to "https://twitter.com/share?url=#{ request.url }&text=見知らぬ#{ @random_post.name }さんの小さな感謝を%20%23はこぶねかんしゃ丸%20が運んできました。", class: 'btn btn-default', target: '_blank' do
+          i.fab.fa-twitter style='color: #3399FF;'
+          |  Twitterでシェア
+
 javascript:
   //感謝カードを浮き上がらせる処理
   document.getElementById("post_form").style.visibility ="hidden";

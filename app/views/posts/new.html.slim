@@ -19,6 +19,8 @@
       .form-area
 
         = form_with model: @post, local: true do |f|
+          = render 'shared/error_messages', { object: f.object }
+
           .form-group
             = f.label :name, '乗組員名'
             = f.text_field :name, class: 'form-control'

@@ -8,6 +8,14 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
+    meta name="twitter:card" content= "summary_large_image" /
+    meta name="twitter:site" content= "@kentaroutawara"/
+
+    meta property="og:url" content= "#{ request.url }" /
+    meta property="og:title" content= "小さな感謝を運ぶサービス" /
+    meta property="og:description" content= "小さな感謝にほっこりしよう" /
+    meta property="og:image" content= 'http://localhost:3000/img/logo.png' /
+
   body
     = render 'shared/flash_message'
     = yield

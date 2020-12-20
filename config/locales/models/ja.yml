@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      post: "感謝"
+
+    attributes:
+      post:
+        name: "乗客員名"
+        description: "小さな感謝"
+

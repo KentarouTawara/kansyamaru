@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     random_post = Post.order("RANDOM()").limit(1).last
+    random_post = 1 if random_post.nil? 
 
     if @post.save
       redirect_to post_path(random_post), success: '感謝が流れてきました！'

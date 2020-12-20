@@ -1,6 +1,6 @@
 .container
   .row.justify-content-center
-    .col-10
+    .col-12
       .title.m-3
         h3.text-center.col-auto
           | それゆけ! 
@@ -17,7 +17,7 @@
         = image_pack_tag 'logo.jpg', size: '500x500', class: "rounded mx-auto d-block img-thumbnail"
 
   .row.justify-content-center
-    .col-9.col-md-6
+    .col-10.col-md-6
       .form-area
 
         = form_with model: @post, local: true do |f|

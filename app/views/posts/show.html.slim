@@ -7,7 +7,7 @@
       .image.mt-3.shake-slow.shake-constant#image
         = image_pack_tag 'logo.jpg', size: '500x500', class: "rounded mx-auto d-block img-thumbnail shake-constant"
   .row.justify-content-center
-    .col-6#post_form
+    .col-12.col-md-6#post_form
       .card.m-3
         .card-header
           h5.text-center 
@@ -15,18 +15,25 @@
         .card-body
           h6.card-text
             = @random_post.description
-      .root.text-center
-        = link_to 'もう一度感謝する', root_path, class: 'btn btn-raised btn-primary mr-5'
-        = link_to "https://twitter.com/share?url=#{ request.url }&text=見知らぬ%20#{ @random_post.name }さん%20の小さな感謝を%20%23かんしゃ丸%20が運んできました。ほっこりしよう。", class: 'btn btn-outline-primary btn-rounded', target: '_blank' do
-                  i.fab.fa-twitter style='color: #3399FF;'
-                  | この感謝をさらに広げる
+.container
+  .row.justify-content-center#btn
+    .col-10.mb-3.col-md-3
+      = link_to 'もう一度感謝する', root_path, class: 'btn btn-raised btn-primary mx-auto d-block'
+    .col-10.col-md-3
+      = link_to "https://twitter.com/share?url=#{ request.url }&text=見知らぬ%20#{ @random_post.name }さん%20の小さな感謝を%20%23かんしゃ丸%20が運んできました。ほっこりしよう。", class: 'btn btn-outline-primary btn-rounded mx-auto d-block', target: '_blank' do
+                i.fab.fa-twitter style='color: #3399FF;'
+                | この感謝をさらに広げる
 
 javascript:
   //感謝カードを浮き上がらせる処理
   document.getElementById("post_form").style.visibility ="hidden";
+  document.getElementById("btn").style.visibility ="hidden";
+
   function formVisible(){
   	const p = document.getElementById("post_form");
+  	const btn = document.getElementById("btn");
   		p.style.visibility ="visible";
+  		btn.style.visibility ="visible";
   }
   setTimeout("formVisible()", 2000);
   function stop(){

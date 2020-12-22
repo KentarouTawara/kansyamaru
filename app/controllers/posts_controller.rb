@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @posts = Post.count
     @post = Post.new(post_params)
     random_post = Post.order("RANDOM()").limit(1).last
     random_post = 1 if random_post.nil? 

@@ -1,40 +1,40 @@
-.container
-  .row.justify-content-center
-    .col-12
-      .title.m-3
-        h3.text-center.col-auto
-          | それゆけ! 
-          br
-          | はこぶね かんしゃ丸
-
-      .explain
-        p.text-center
-          | 今日あった小さな感謝を具体的に描写して、かんしゃ丸に載せてみよう。
-          br
-          | かんしゃ丸は善の波に乗って誰かの小さな感謝をあなたに届けてくれるよ！
-
-      .image-area.m-3
-        = image_pack_tag 'logo.jpg', size: '500x500', class: "rounded mx-auto d-block img-thumbnail"
-
-      .number
-        p.text-center
-          | 総 小さな感謝 数: #{ @posts }
-
-  .row.justify-content-center
-    .col-10.col-md-6
-      .form-area
-
-        = form_with model: @post, local: true do |f|
-          = render 'shared/error_messages', { object: f.object }
-
-          .form-group
-            = f.label :name, '乗組員名'
-            = f.text_field :name, class: 'form-control'
-
-          .form-group
-            = f.label :description, '小さな感謝'
-            = f.text_area :description, class: 'form-control', size: '10x7'
-
-          .form-group.text-center
-            = f.submit '離岸させる', class: 'btn btn btn-raised btn-primary'
+  .container
+    .row.justify-content-center
+      .col-12
+        .title.m-3
+          h3.text-center.col-auto
+            | それゆけ! 
+            br
+            | はこぶね かんしゃ丸
+  
+        .explain
+          p.text-center
+            | 今日あった小さな感謝を具体的に描写して、かんしゃ丸に載せてみよう。
+            br
+            | かんしゃ丸は善の波に乗って誰かの小さな感謝をあなたに届けてくれるよ！
+  
+        .image-area.m-3
+          = image_pack_tag 'logo2.png', size: '500x500', class: "rounded mx-auto d-block"
+  
+        .number
+          p.text-center
+            | #{ @posts } 個の小さな感謝を積載しています。
+  
+    .row.justify-content-center
+      .col-10.col-md-6
+        .form-area
+  
+          = form_with model: @post, local: true do |f|
+            = render 'shared/error_messages', { object: f.object }
+  
+            .card.form-group.p-3
+              = f.label :name, '乗組員名'
+              = f.text_field :name, class: 'form-control'
+  
+            .card.form-group.p-3
+              = f.label :description, '小さな感謝'
+              = f.text_area :description, class: 'form-control', size: '10x7'
+  
+            .form-group.text-center
+              = f.submit '離岸させる', class: 'btn btn btn-raised btn-info'
 

@@ -1,28 +1,32 @@
-.container
-  .row.justify-content-center
-    .col-10
-      .tiltle
-        h4.text-center.m-3
-          | 誰かの小さな感謝を運んでいます
-      .image.mt-3.shake-slow.shake-constant#image
-        = image_pack_tag 'logo.jpg', size: '500x500', class: "rounded mx-auto d-block img-thumbnail shake-constant"
-  .row.justify-content-center
-    .col-12.col-md-6#post_form
-      .card.m-3
-        .card-header
-          h5.text-center 
-            | #{ @random_post.name }さん の小さな感謝が届きました
-        .card-body
-          h6.card-text
-            = @random_post.description
-.container
-  .row.justify-content-center#btn
-    .col-10.mb-3.col-md-3
-      = link_to 'もう一度感謝する', root_path, class: 'btn btn-raised btn-primary mx-auto d-block'
-    .col-10.col-md-3
-      = link_to "https://twitter.com/share?url=#{ request.url }&text=見知らぬ%20#{ @random_post.name }さん%20の小さな感謝を%20%23かんしゃ丸%20が運んできました。ほっこりしよう。", class: 'btn btn-outline-primary btn-rounded mx-auto d-block', target: '_blank' do
-                i.fab.fa-twitter style='color: #3399FF;'
-                | この感謝をさらに広げる
+#wrapper.shake-slow.shake-constant
+  .container
+    .row.justify-content-center
+      .col-10
+        .tiltle
+          h4.text-center.m-3
+            | 誰かの小さな感謝を運んでいます
+        .image.mt-3.shake-chunk.shake-constant#image
+          = image_pack_tag 'logo2.png', size: '500x500', class: "rounded mx-auto d-block shake-constant"
+    .row.justify-content-center
+      .col-12.col-md-6#post_form
+        .card.m-3
+          .card-header
+            h5.text-center 
+              | #{ @random_post.name }さん の小さな感謝が届きました
+          .card-body
+            h6.card-text
+              = @random_post.description
+  .container[style="height: 18rem;"]
+    .row.justify-content-center#btn
+      .col-10.mb-3.col-md-3
+        = link_to '港に戻る', root_path, class: 'btn btn-raised btn-info mx-auto d-block'
+      .col-10.col-md-3
+        = link_to "https://twitter.com/share?url=#{ request.url }&text=見知らぬ%20#{ @random_post.name }さん%20の小さな感謝を%20%23かんしゃ丸%20が運んできました。ほっこりしよう。", class: 'btn btn-outline-info btn-rounded mx-auto d-block', target: '_blank' do
+                  i.fab.fa-twitter style='color: #3399FF;'
+                  | この感謝をさらに広げる
+  .container
+    .footer
+
 
 javascript:
   //感謝カードを浮き上がらせる処理
@@ -36,7 +40,10 @@ javascript:
   		btn.style.visibility ="visible";
   }
   setTimeout("formVisible()", 2000);
+  
+  // stop shake
   function stop(){
     document.getElementById("image").className="hoge";
+    document.getElementById("wrapper").className="hoge";
   }
   setTimeout("stop()", 2000);

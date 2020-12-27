@@ -63,3 +63,9 @@ Post.seed do |s|
   s.name = '夕陽'
   s.description = "公園は陽が照っていて気持ちよかった。お天道様、ありがとう。"
 end
+
+AdminUser.seed do |s|
+  s.id = 2
+  s.email = 'tawara@bt.com'
+  s.password = 'tawara'
+end
